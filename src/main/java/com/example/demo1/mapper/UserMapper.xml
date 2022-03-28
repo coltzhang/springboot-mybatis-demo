@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--上面2行的是约束依赖，固定照抄就好-->
+<!--下面的才是要自己编写的地方-->
+<!--写mapper的配置文件第一步就是要写<mapper></mapper>标签-->
+<!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
+<mapper namespace="com.example.demo1.mapper.UserMapper">
+    <!--定义一个名为BaseResultMap的返回类型-->
+    <resultMap id="BaseResultMap" type="com.example.demo1.entity.User">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="username" property="userName" jdbcType="VARCHAR"></result>
+        <result column="password" property="password" jdbcType="VARCHAR"></result>
+        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <!--查找语句-->
+    <!--resultMap表示函数返回的类型-->
+    <select id="query" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select * from user where id=#{id}
+    </select>
+
+    <!--插入语句-->
+    <!--id要与UserMapper文件中表示插入的函数名一致，parameterType表示函数的输入参数的类型-->
+    <insert id="insert" parameterType="com.example.demo1.entity.User">
+        insert into user(username, password, phone_number) values(#{userName}, #{password}, #{phoneNumber})/*SQL语句*/
+    </insert>
+
+    <!--删除语句-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from user where id =#{id}
+    </delete>
+
+    <!--修改语句-->
+    <update id="update" parameterType="com.example.demo1.entity.User">
+        update user set username=#{userName}, password=#{password}, phone_number=#{phoneNumber} where id=#{id}
+    </update>
+</mapper>
