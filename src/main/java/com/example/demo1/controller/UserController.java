@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    Car car;
 
     @GetMapping("hello")
-    public String hellp() {
+    public String hello() {
+        car.drive();
         return "hello";
     }
 
