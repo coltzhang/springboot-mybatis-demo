@@ -3,10 +3,18 @@ package com.example.demo1.controller;
 import com.example.demo1.entity.User;
 import com.example.demo1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+//@Controller
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -15,10 +23,32 @@ public class UserController {
     @Autowired
     Car car;
 
+    @GetMapping("control")
+    public String control() {
+        return "control";
+    }
+
     @GetMapping("hello")
-    public String hello() {
+    public Map<String, Object> hello() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("name", "zhangsan");
+        map.put("car", car);
         car.drive();
-        return "hello";
+        return map;
+    }
+
+    @ResponseBody
+    @GetMapping("list")
+    public List<User> list() {
+        User user1 = new User();
+        user1.setUserName("zhangsan");
+        User user2 = new User();
+        user2.setUserName("lisi");
+
+        List<User> list = new ArrayList<>();
+        list.add(user1);
+        list.add(user2);
+        return list;
     }
 
     @GetMapping("query")

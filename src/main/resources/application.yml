@@ -7,8 +7,8 @@ spring:
 
 server:
   port: 8080
-  servlet:
-    context-path: /test
+#  servlet:
+#    context-path: /test
 
 mybatis:
   mapper-locations: com/example/demo1/mapper/*.xml
