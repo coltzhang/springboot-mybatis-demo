@@ -1,5 +1,6 @@
 package com.example.demo1.controller;
 
+import com.example.demo1.common.Log;
 import com.example.demo1.entity.User;
 import com.example.demo1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,8 @@ public class UserController {
         return map;
     }
 
-    @ResponseBody
+    // @ResponseBody
+    @Log("自定义日志注解")
     @GetMapping("list")
     public List<User> list() {
         User user1 = new User();
