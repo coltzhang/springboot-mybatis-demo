@@ -1,4 +1,4 @@
-package com.example.demo1.common;
+package com.example.demo.common;
 
 
 import java.lang.annotation.ElementType;

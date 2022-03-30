@@ -1,4 +1,4 @@
-package com.example.demo1.common;
+package com.example.demo.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -16,7 +16,7 @@ public class SysLog {
 
     // 定义切点
     // @Pointcut("execution(* com.example.demo1.controller.*.*(..))")
-    @Pointcut("@annotation(com.example.demo1.common.Log)")
+    @Pointcut("@annotation(com.example.demo.common.Log)")
     public void logPointCut() {
     }
 

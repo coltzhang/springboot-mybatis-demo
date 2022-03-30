@@ -1,6 +1,6 @@
-package com.example.demo1.mapper;
+package com.example.demo.mapper;
 
-import com.example.demo1.entity.User;
+import com.example.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
