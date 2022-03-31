@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("hello")
     public Map<String, Object> hello() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("name", "zhangsan");
         map.put("car", car);
         car.drive();
@@ -48,6 +48,9 @@ public class UserController {
         // 1.类的注解
         RequestMapping annRequestMapping = UserController.class.getAnnotation(RequestMapping.class);
         System.out.println("UserController annotation:" + annRequestMapping.toString());
+        for (String str: annRequestMapping.value()) {
+            System.out.println("UserController annotation value:" + str);
+        }
 
         // 2.方法的注解
         try {
