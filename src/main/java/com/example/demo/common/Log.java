@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Log {
-    String value() default "";
+    String value() default "";  // 指定参数 value="xxx"，value可以不写
 }
